@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -45,12 +46,24 @@
                                     <constraint firstAttribute="trailing" secondItem="5FX-ra-L2X" secondAttribute="trailing" id="nIe-Rr-fFA"/>
                                 </constraints>
                             </stackView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="CV8-TZ-Jti">
+                                <rect key="frame" x="16" y="207" width="320" height="320"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CV8-TZ-Jti" secondAttribute="height" multiplier="1:1" id="ciu-36-ahE"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="x4I-uO-F2R" appends="YES" id="nqf-OD-Q7j"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="nfZ-rA-QZb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="0eH-jn-uyP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nfZ-rA-QZb" secondAttribute="trailing" id="W8L-kc-hZS"/>
+                            <constraint firstItem="CV8-TZ-Jti" firstAttribute="top" secondItem="nfZ-rA-QZb" secondAttribute="bottom" constant="22" id="XZd-SP-gZK"/>
                             <constraint firstItem="nfZ-rA-QZb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="Z5Z-oW-ngR"/>
+                            <constraint firstItem="CV8-TZ-Jti" firstAttribute="leading" secondItem="nfZ-rA-QZb" secondAttribute="leading" id="hkg-pl-v3l"/>
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
@@ -58,11 +71,20 @@
                     <connections>
                         <outlet property="mealNameLabel" destination="rsL-sN-YOX" id="JUN-y0-aLy"/>
                         <outlet property="nameTextField" destination="5FX-ra-L2X" id="gLZ-1o-Kia"/>
+                        <outlet property="photoImageView" destination="CV8-TZ-Jti" id="U4D-Ds-LtA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="x4I-uO-F2R">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="6M3-px-bg2"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="797.5" y="435.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultPhoto" width="360" height="360"/>
+    </resources>
 </document>
