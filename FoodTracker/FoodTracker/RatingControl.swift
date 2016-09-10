@@ -46,7 +46,7 @@ class RatingControl: UIView {
     override func layoutSubviews() {
         
         // Set the button's width and height to a square the size of the frame's height.
-        let buttonSize = Int(frame.size.height) - 20
+        let buttonSize = Int(frame.size.height)
         var buttonFrame = CGRect(x: 0, y: 0, width: buttonSize, height: buttonSize)
         
         // Offset each button's origin by the length of the button plus spacing.
